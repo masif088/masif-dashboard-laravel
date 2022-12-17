@@ -33,30 +33,32 @@
 
             var options = {
                 colors: [colors.primaryLight, colors.primaryLighter],
-                chart: {
-                    foreColor: getForeColors(),
-                    type: '{{ $chart['type'] }}',
-                    height: 300
-                },
                 series: [
-                    @foreach($chart['data'] as $value)
-                    {
-                        name: '{{ $value['label'] }}',
-                        data: [
-                            @foreach($value['value'] as $v)
-                            {{ $v }},
-                            @endforeach
-                        ]
-                    },
+                    @foreach($chart['data'] as $v)
+                        {{ $v }},
                     @endforeach
                 ],
-                xaxis: {
-                    categories: [
+                    labels: [
                         @foreach($chart['categories'] as $v)
                             '{{ $v }}',
                         @endforeach
-                    ]
-                }
+                    ],
+                chart: {
+                    foreColor: getForeColors(),
+                    type: '{{ $chart['type'] }}',
+                    height: 300,
+                    toolbar: {
+                        show: true,
+                    },
+                },
+
+                legend: {
+                    position: '{{ isset($chart['legend'])?$chart['legend']:'bottom' }}',
+                    offsetX: 0,
+                    showForSingleSeries: false,
+                    showForNullSeries: true,
+                    showForZeroSeries: true,
+                },
             }
             var chart = new ApexCharts(document.querySelector("#chart{{$random}}"), options);
             chart.render();

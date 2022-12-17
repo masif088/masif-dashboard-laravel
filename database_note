@@ -1,0 +1,111 @@
+php artisan make:migration update_add_role_users
+php artisan make:migration create_statuses
+php artisan make:migration create_tags
+php artisan make:migration create_paths
+php artisan make:migration create_rooms
+php artisan make:migration create_room_paths
+php artisan make:migration create_file_types
+php artisan make:migration create_courses
+php artisan make:migration create_course_groups
+php artisan make:migration create_course_details
+php artisan make:migration create_course_reads
+php artisan make:migration create_user_have_courses
+
+php artisan krlove:generate:model Status
+php artisan krlove:generate:model Tag
+php artisan krlove:generate:model Path
+php artisan krlove:generate:model Room
+php artisan krlove:generate:model RoomPath
+php artisan krlove:generate:model FileType
+php artisan krlove:generate:model Course
+php artisan krlove:generate:model CourseTag
+php artisan krlove:generate:model CourseType
+php artisan krlove:generate:model CourseGroup
+php artisan krlove:generate:model CourseDetail
+php artisan krlove:generate:model CourseRead
+php artisan krlove:generate:model UserHaveCourse
+
+
+users
+role
+
+statuses
+id
+title
+
+tags
+id
+title
+slug
+
+
+paths
+id
+title
+slug
+description
+
+rooms
+id
+title
+slug
+description
+
+room_paths
+id
+room_id
+path_id
+
+file_types
+id
+slug
+location
+
+courses
+id
+room_id
+title
+slug
+release_date
+status
+
+course_tags
+id
+tag_id
+course_id
+
+course_groups
+id
+course_id
+title
+slug
+
+course_types
+id
+title
+
+course_detail
+id
+course_group_id
+course_type_id
+title
+content
+release_date
+status
+
+course_read
+id
+user_id
+course_detail_id
+
+events
+id
+room_id
+title
+date
+description
+
+user_have_course
+id
+user_id
+course_id

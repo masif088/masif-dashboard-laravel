@@ -4611,7 +4611,7 @@
                 this.headers = this.element.find( this.options.header );
             }
             this._addClass( this.headers, "ui-accordion-header ui-accordion-header-collapsed",
-                "ui-state-default" );
+                "ui-state-default  dark:text-light" );
 
             this.panels = this.headers.next().filter( ":not(.ui-accordion-content-active)" ).hide();
             this._addClass( this.panels, "ui-accordion-content", "ui-helper-reset ui-widget-content" );
@@ -6402,7 +6402,7 @@
                         element.contents()
                             .wrapAll( "<span class='ui-controlgroup-label-contents'></span>" );
                     } );
-                    that._addClass( labels, null, "ui-widget ui-widget-content ui-state-default" );
+                    that._addClass( labels, null, "ui-widget ui-widget-content ui-state-default  dark:text-light" );
                     childWidgets = childWidgets.concat( labels.get() );
                     return;
                 }
@@ -9091,7 +9091,7 @@
                 controls = $( "<button>" )
                     .attr( {
                         type: "button",
-                        "class": "ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all",
+                        "class": "ui-datepicker-close ui-state-default  dark:text-light ui-priority-primary ui-corner-all",
                         "data-handler": "hide",
                         "data-event": "click"
                     } )
@@ -9106,7 +9106,7 @@
                         $( "<button>" )
                             .attr( {
                                 type: "button",
-                                "class": "ui-datepicker-current ui-state-default ui-priority-secondary ui-corner-all",
+                                "class": "ui-datepicker-current ui-state-default  dark:text-light ui-priority-secondary ui-corner-all",
                                 "data-handler": "today",
                                 "data-event": "click"
                             } )
@@ -9197,7 +9197,7 @@
                                 ( ( !otherMonth || showOtherMonths ) && daySettings[ 2 ] ? " title='" + daySettings[ 2 ].replace( /'/g, "&#39;" ) + "'" : "" ) + // cell title
                                 ( unselectable ? "" : " data-handler='selectDay' data-event='click' data-month='" + printDate.getMonth() + "' data-year='" + printDate.getFullYear() + "'" ) + ">" + // actions
                                 ( otherMonth && !showOtherMonths ? "&#xa0;" : // display for other months
-                                    ( unselectable ? "<span class='ui-state-default'>" + printDate.getDate() + "</span>" : "<a class='ui-state-default" +
+                                    ( unselectable ? "<span class='ui-state-default'>" + printDate.getDate() + "</span>" : "<a class='ui-state-default  dark:text-light" +
                                         ( printDate.getTime() === today.getTime() ? " ui-state-highlight" : "" ) +
                                         ( printDate.getTime() === currentDate.getTime() ? " ui-state-active" : "" ) + // highlight selected day
                                         ( otherMonth ? " ui-priority-secondary" : "" ) + // distinguish dates from other months
@@ -14842,7 +14842,7 @@
 
             this.handles = existingHandles.add( $( handles.join( "" ) ).appendTo( this.element ) );
 
-            this._addClass( this.handles, "ui-slider-handle", "ui-state-default" );
+            this._addClass( this.handles, "ui-slider-handle", "ui-state-default  dark:text-light" );
 
             this.handle = this.handles.eq( 0 );
 
@@ -18042,7 +18042,7 @@
                     role: "tab",
                     tabIndex: -1
                 } );
-            this._addClass( this.tabs, "ui-tabs-tab", "ui-state-default" );
+            this._addClass( this.tabs, "ui-tabs-tab", "ui-state-default  dark:text-light" );
 
             this.anchors = this.tabs.map( function() {
                 return $( "a", this )[ 0 ];

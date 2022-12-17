@@ -15,6 +15,15 @@
     <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
           integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
           referrerpolicy="no-referrer" rel="stylesheet"/>
+    @livewireStyles
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{asset('vendor/select2/select2.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('vendor/apexchart/apexcharts.css') }}">
+
+    <link rel="stylesheet" type="text/css" href="{{asset('vendor/datepicker/date-picker.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('vendor/datepicker/date-picker.custom.css?_=2')}}">
 </head>
 <body>
 <div :class="{ 'dark': isDark}" x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);">
@@ -39,9 +48,27 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+
 <!-- All javascript code in this project for now is just for demo DON'T RELY ON IT  -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
+{{--<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>--}}
+<script src="{{ asset('vendor/apexchart/apexcharts.js') }}"></script>
 <script src="{{ asset('masif-dashboard/js/colors.js') }}"></script>
+<script src="{{asset('vendor/select2/select2.min.js')}}"></script>
+<script src="{{ asset('vendor/datepicker/datepicker.en.js') }}"></script>
+<script src="{{ asset('vendor/datepicker/datepicker.custom.js') }}"></script>
+
+<script src='{{ asset('vendor/calendar/index.global.js') }}'></script>
+@livewireScripts
 
 <script>
     const setup = () => {
@@ -75,6 +102,7 @@
             this.selectedColor = color
             window.localStorage.setItem('color', color)
         }
+
 
         return {
             loading: true,

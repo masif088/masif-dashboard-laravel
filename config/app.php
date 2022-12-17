@@ -197,6 +197,12 @@ return [
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
 
+        /*
+         * Additional
+         */
+        Krlove\EloquentModelGenerator\Provider\GeneratorServiceProvider::class,
+        browner12\helpers\HelperServiceProvider::class,
+
     ],
 
     /*

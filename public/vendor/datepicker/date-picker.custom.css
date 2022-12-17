@@ -8,9 +8,9 @@
 ----------------------------------*/
 .highlight-event a{
     border-radius: 25px;
-    border: 1px solid #00B4D8;
-    background: #CAF0F8;
-    color: #03045E
+    border: 1px solid var(--color-primary-lighter);
+    background: var(--color-primary-light);
+    /*color: var(--color-primary-dark)*/
 }
 .ui-helper-hidden {
     display: none;
@@ -935,7 +935,7 @@ body .ui-tooltip {
     font-weight: bold;
 }
 .ui-widget-header a {
-    color: #333333;
+    color: var(--color-primary);
 }
 .ui-state-default{
     width: 40px;
@@ -958,7 +958,7 @@ html .ui-button.ui-state-disabled:active {
     /*background: #f6f6f6;*/
     font-weight: normal;
     text-align: center;
-    color: #454545;
+
     border-radius: 25px;
 }
 .ui-state-default a,

@@ -14,7 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index');
+    return redirect(\route('dashboard'));
+});
+
+Route::get('/aaa', function () {
+    dd(\App\Repository\User::formField());
+//    \App\Models\Tag::create(['title'=>'a','created_at' => \Carbon\Carbon::now(),'updated_at' => null]);
 });
 
 Route::middleware([
@@ -23,6 +28,10 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+//        dd("ads");
+        return view('pages.dashboard');
     })->name('dashboard');
 });
+
+
+

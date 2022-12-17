@@ -60,6 +60,46 @@
     --color-violet-darker: #5b21b6;
 }
 
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+.ui-button,
+
+    /* We use html here because we need a greater specificity to make sure disabled
+    works properly when clicked or hovered */
+html .ui-button.ui-state-disabled:hover,
+html .ui-button.ui-state-disabled:active {
+    /*border: 1px solid #c5c5c5;*/
+    /*background: #f6f6f6;*/
+    font-weight: normal;
+    text-align: center;
+
+    border-radius: 25px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    padding-left:25px!important;
+    padding-right:10px!important;
+    margin-bottom: 10px !important;
+    background-color: var(--color-primary) !important;
+    border-color: var(--color-primary-dark) !important;
+    color: var(--light) !important;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    padding-bottom: 3px !important;
+}
+
+.select2-container--default .select2-selection--multiple{
+    background-color: inherit;
+    border-radius: 4px;
+    cursor: text;
+}
+select:focus{
+    border-color: var(--color-primary-dark) !important;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
