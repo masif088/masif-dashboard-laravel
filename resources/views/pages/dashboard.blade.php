@@ -7,7 +7,7 @@ $a=new \App\Repository\User();
         Dashboard
     </x-slot>
     <x-slot name="subtitles">
-        Data,{{route('dashboard')}}
+        Data,{{route('admin.dashboard')}}
     </x-slot>
     <div class="mt-2">
 
@@ -74,7 +74,6 @@ $a=new \App\Repository\User();
 	['title'=>'some1','date'=>\Carbon\Carbon::now()->addDay()],
 ] @endphp
                 <x-calendar :events="$events"/>
-                <x-button-primary title='Edit' link='edit' />
             </div>
         </div>
 

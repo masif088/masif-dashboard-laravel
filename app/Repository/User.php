@@ -72,14 +72,13 @@ class User extends \App\Models\User implements Repository {
     {
         return [
             'searchable' => true,
-            'view'       => 'livewire.table.user',
         ];
     }
 
     public static function tableField(): array
     {
         return [
-            ['label' => 'Name', 'sort' => 'id'],
+            ['label' => '#', 'sort' => 'id','width'=>'7%'],
             ['label' => 'Name', 'sort' => 'name'],
             ['label' => 'Email', 'sort' => 'email'],
             ['label' => 'Role', 'sort' => 'role'],
@@ -89,7 +88,7 @@ class User extends \App\Models\User implements Repository {
 
     public static function tableData($data = null): array
     {
-        $edit = route('dashboard');
+        $edit = route('admin.dashboard');
         return [
             ['type' => 'index'],
             ['type' => 'string', 'data' => $data->name],

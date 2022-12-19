@@ -1030,9 +1030,8 @@ a.ui-button:active,
 .ui-state-highlight,
 .ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
-    border: 1px solid #CAF0F8;
-    background: #00B4D8;
-    color: #03045E;
+    background: var(--color-primary-dark);
+    color: var(--light);
     border-radius: 25px;
 }
 .ui-state-checked {

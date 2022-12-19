@@ -78,6 +78,19 @@ html .ui-button.ui-state-disabled:active {
     border-radius: 25px;
 }
 
+
+
+.activity-dot-primary {
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border-radius: 100%;
+    border: 3px solid var(--color-primary);
+
+    box-shadow: 0.5px 4.33px 15px 0px rgba(var(--color-primary), 0.25);
+}
+
+
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
     padding-left:25px!important;
     padding-right:10px!important;

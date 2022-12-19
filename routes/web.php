@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CourseTagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,19 +19,19 @@ Route::get('/', function () {
 });
 
 Route::get('/aaa', function () {
-    dd(\App\Repository\User::formField());
-//    \App\Models\Tag::create(['title'=>'a','created_at' => \Carbon\Carbon::now(),'updated_at' => null]);
+
 });
 
-Route::middleware([
+Route::prefix('admin/')->name('admin.')->middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-//        dd("ads");
         return view('pages.dashboard');
     })->name('dashboard');
+
+    Route::resource('course-tag', CourseTagController::class)->only('index','create','edit');
 });
 
 

@@ -12,12 +12,8 @@
                         @break
                     @endif
                     @if(Carbon::parse($event['date'])->isToday())
-                        <div class='media' style='margin-top: 0'>
-                            <div class="activity-dot-primary"></div>
-                            <div class="media-body"><span>
-                                {{$event['title']}}
-                            </span>
-                            </div>
+                        <div class="text-primary font-bold dark:text-primary-lighter">
+                            <i class="fa fa-fire"></i> {{$event['title']}}
                         </div>
                     @endif
 

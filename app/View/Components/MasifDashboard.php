@@ -13,8 +13,8 @@ class MasifDashboard extends Component
             [
                 'title'=>'General',
                 'sub-link'=>[
-                    ['route'=>'dashboard','icon'=>'fa fa-eye','title'=>'Dashboard'],
-                    ['route'=>'dashboard','icon'=>'fa fa-file-alt','title'=>'Document'],
+                    ['route'=>'admin.dashboard','icon'=>'fa fa-eye','title'=>'Dashboard'],
+                    ['route'=>'admin.dashboard','icon'=>'fa fa-file-alt','title'=>'Document'],
                     ['link'=>'https://goolge.com','icon'=>'fa fa-envelope','title'=>'Mail'],
                 ]
             ],

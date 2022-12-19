@@ -3,22 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
-/**
- * @property integer $id
- * @property integer $room_id
- * @property integer $status
- * @property string $title
- * @property string $slug
- * @property string $release
- * @property string $created_at
- * @property string $updated_at
- * @property CourseGroup[] $courseGroups
- * @property CourseTag[] $courseTags
- * @property Room $room
- * @property Status $status
- * @property UserHaveCourse[] $userHaveCourses
- */
 class Course extends Model
 {
     /**

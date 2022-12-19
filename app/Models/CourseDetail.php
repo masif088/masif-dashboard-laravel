@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $updated_at
  * @property CourseGroup $courseGroup
  * @property CourseType $courseType
- * @property Status $status
+
  * @property CourseRead[] $courseReads
  */
 class CourseDetail extends Model

@@ -30,7 +30,7 @@
                 <thead class=" text-md text-uppercase text-gray-700 uppercase dark:bg-dark dark:text-white text-bold">
                 <tr class="border-b border-primary">
                     @foreach($model::tableField() as $field)
-                        <th class="py-2 px-6">
+                        <th class="py-2 px-6" style="{{ isset($field['width'])?'width:'.$field['width']:'' }}">
                             <a @isset($field['sort']) wire:click.prevent="sortBy('{{ $field['sort'] }}')"
                                @endisset role="button" href="#">
                                 {{$field['label']}} @isset($field['sort'])
@@ -68,21 +68,13 @@
                                 @case('action')
                                     <td class="py-2 px-6">
                                         @foreach($data['data'] as $action)
-                                            @isset($action['link'])
-                                                <a href='{{ $action['link'] }}'
+                                                <a @isset($action['link']) href='{{ $action['link'] }}' @else href='#' wire:click.prevent='{{$action['live']}}' @endisset
                                                    class="bg-primary hover:bg-primary-dark text-white font-bold px-3 rounded m-1">
                                                     @isset($action['icon'])
                                                         <i class="{{ $action['icon'] }}"></i>
                                                     @endisset
                                                     {{ $action['title'] }}
                                                 </a>
-                                            @endisset
-                                            @isset($action['live'])
-                                                <a href='#' wire:click.prevent='{{$action['live']}}'
-                                                   class="bg-primary hover:bg-primary-dark text-white font-bold px-3 rounded m-1">
-                                                    {{ $action['title'] }}
-                                                </a>
-                                            @endisset
                                         @endforeach
                                     </td>
                                     @break
