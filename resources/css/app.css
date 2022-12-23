@@ -91,6 +91,7 @@ html .ui-button.ui-state-disabled:active {
 }
 
 
+
 .select2-container--default .select2-selection--multiple .select2-selection__choice {
     padding-left:25px!important;
     padding-right:10px!important;
@@ -112,6 +113,11 @@ html .ui-button.ui-state-disabled:active {
 select:focus{
     border-color: var(--color-primary-dark) !important;
 }
+/*.tox .tox-tinymce{*/
+/*    background: ;*/
+/*}*/
+
+
 
 @tailwind base;
 @tailwind components;

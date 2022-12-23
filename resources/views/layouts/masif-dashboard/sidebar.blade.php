@@ -22,7 +22,7 @@
                                 block flex p-2 text-sm transition-all duration-200
                                 dark:hover:text-light hover:text-gray-700  rounded-md  transition-all transition ease-in-out
                                  hover:bg-primary-100  dark:hover:bg-primary hover:-translate-y-1
-                                {{ isset($link['route']) && (strpos(Route::currentRouteName(), $link['route']) == 0)  ?'bg-primary-100  dark:bg-primary dark:text-light text-gray-700' : 'text-primary-light bg-white dark:bg-darker ' }}"
+                                {{ isset($link['route']) && (Route::currentRouteName()== $link['route']) ?'bg-primary-100  dark:bg-primary dark:text-light text-gray-700' : 'text-primary-light bg-white dark:bg-darker ' }}"
                                href="{{ isset($link['route'])?isset($link['params'])?route($link['route'],$link['params']):route($link['route']):$link['link']  }}"
                                role="menuitem">
                                 <span

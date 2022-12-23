@@ -12,9 +12,7 @@
                         @break
                     @endif
                     @if(Carbon::parse($event['date'])->isToday())
-                        <div class="text-primary font-bold dark:text-primary-lighter">
-                            <i class="fa fa-fire"></i> {{$event['title']}}
-                        </div>
+                        <div class="text-primary font-bold dark:text-primary-lighter"><i class="fa fa-fire"></i> {{$event['title']}}</div>
                     @endif
 
                 @endforeach
@@ -23,7 +21,6 @@
                 document.addEventListener('DOMContentLoaded', () => {
                     var events = [
                         @foreach($events as $event)
-                        // {Title: "some", Date: new Date("12/20/2022")},
                         {
                             Title: "{{$event['title']}}",
                             Date: new Date("{{ Carbon::parse($event['date'])->format('m/d/Y') }}")
@@ -52,7 +49,7 @@
 
                                 function myFunction(item, index) {
                                     $("#events").prepend(
-                                        "<div class='media' style='margin-top: 0'> <div class='activity-dot-primary'></div> <div class='media-body'><span>" + item.Title + "</span> </div> </div>"
+                                        "<div class='text-primary font-bold dark:text-primary-lighter'><i class='fa fa-fire'></i> "+item.Title+"</div>"
                                     );
                                 }
                             }

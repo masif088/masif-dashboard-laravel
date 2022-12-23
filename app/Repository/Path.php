@@ -5,7 +5,7 @@ namespace App\Repository;
 use App\Models\Room;
 use Illuminate\Database\Eloquent\Builder;
 
-class Course extends \App\Models\Course implements Repository {
+class Path extends \App\Models\Path implements Repository {
 
 	public static function tableSearch($params): Builder
 	{
@@ -64,12 +64,7 @@ class Course extends \App\Models\Course implements Repository {
                 'type'        => 'select',
                 'model'       => 'room_id',
                 'required'    => true,
-            ],
-            [
-                'title'       => 'Status',
-                'type'        => 'select',
-                'model'       => 'room_id',
-                'required'    => true,
+//                'option'=>
             ],
         ];
 	}

@@ -28,8 +28,8 @@ class User extends \App\Models\User implements Repository {
     {
         return [
             [
-                'title'       => 'Nama',
-                'type'        => 'select',
+                'title'       => 'Textarea',
+                'type'        => 'editor',
                 'model'       => 'name',
                 'options'     => [
                     ['value' => 1, 'title' => 'asdasd'],
@@ -94,8 +94,6 @@ class User extends \App\Models\User implements Repository {
             ['type' => 'string', 'data' => $data->name],
             ['type' => 'string', 'data' => $data->email],
             ['type' => 'thousand_format', 'data' => $data->role],
-//            ['type' => 'img', 'data' => asset('masif-dashboard/images/ilustration-1.png'), 'height' => '100px'],
-//            ['type' => 'raw_html', 'data' => " <x-button-primary title='Edit' link='edit' /> "],
             ['type' => 'action', 'data' => [
                     ['title'=>'Edit','icon'=>'fa fa-eye', 'link'=>$edit],
                     ['title'=>'Hapus','icon'=>'fa fa-trash', 'live'=>'delete'],

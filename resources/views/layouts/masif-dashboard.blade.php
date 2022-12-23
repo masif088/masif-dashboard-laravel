@@ -21,9 +21,12 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{{asset('vendor/select2/select2.min.css')}}">
     <link rel="stylesheet" href="{{ asset('vendor/apexchart/apexcharts.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('vendor/summernote/summernote.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/summernote/bootstrap-summernote.css') }}">
     <link rel="stylesheet" type="text/css" href="{{asset('vendor/datepicker/date-picker.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('vendor/datepicker/date-picker.custom.css?_=2')}}">
+    <script src="https://cdn.tiny.cloud/1/cdy7uy0kp3sps4cksg5twt8j1dbz75v48yog5k9ype8x9oo3/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
 </head>
 <body>
 <div :class="{ 'dark': isDark}" x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);">
@@ -66,6 +69,7 @@
 <script src="{{asset('vendor/select2/select2.min.js')}}"></script>
 <script src="{{ asset('vendor/datepicker/datepicker.en.js') }}"></script>
 <script src="{{ asset('vendor/datepicker/datepicker.custom.js') }}"></script>
+<script src="{{ asset('vendor/summernote/summernote.js') }}"></script>
 
 <script src='{{ asset('vendor/calendar/index.global.js') }}'></script>
 @livewireScripts

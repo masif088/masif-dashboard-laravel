@@ -41,7 +41,9 @@ $a=new \App\Repository\User();
                         class="inline-block px-2 py-px ml-2 text-xs {{ increase_check(User::getIncreaseUser()) }} rounded-md">
                             {{ User::getIncreaseUser() }}%
                         </span>
+
                 </div>
+
                 <div>
                     <i class="fa-solid fa-users text-3xl text-primary-dark dark:text-primary-100"></i>
                 </div>
@@ -51,7 +53,6 @@ $a=new \App\Repository\User();
 
         <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-12">
             <div class="col-span-8 bg-white rounded-md dark:bg-darker shadow-soft-xl p-5">
-
                 <div class="text-5xl font-bold text-primary dark:text-primary-light float-left">
                     Selamat Datang
                 </div>
@@ -65,7 +66,7 @@ $a=new \App\Repository\User();
                 <br>
             </div>
             <div class="col-span-4 bg-white rounded-md dark:bg-darker shadow-soft-xl p-5">
-{{--                @livewire('check')--}}
+
                 @php $events=[
 	['title'=>'some','date'=>\Carbon\Carbon::now()->subDay()],
 	['title'=>'some','date'=>\Carbon\Carbon::now()],
@@ -75,18 +76,27 @@ $a=new \App\Repository\User();
 ] @endphp
                 <x-calendar :events="$events"/>
             </div>
+
+
+
+
+
         </div>
 
         <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-12">
 
+
             <div class="col-span-8 bg-white rounded-md dark:bg-darker shadow-soft-xl"
                  x-data="{ isOn: false }">
                 <!-- Card header 1 -->
+
+{{--                <textarea>Next, use our Get Started docs to setup Tiny!</textarea>--}}
                 <div class="flex items-center justify-between p-4 border-b dark:border-primary">
                     <h4 class="text-lg font-bold text-primary-dark dark:text-primary-light">Header 1</h4>
                 </div>
                 <!-- Card body 1 -->
                 <div class="relative p-4">
+                    @livewire('check')
                     @php
                         $chart1=[
 							'type'=>'line',

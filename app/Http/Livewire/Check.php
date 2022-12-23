@@ -15,7 +15,7 @@ class Check extends Component
     public $a;
     public $chart;
     public function mount(){
-        $this->chart=[
+                $this->chart=[
             'type'=>'line',
             'categories'=>['a','b','c','d','e'],
             'data'=> [
@@ -35,6 +35,9 @@ class Check extends Component
         ];
 
         $this->data=form_model(User::class,1);
+        $this->data['name']='<b>aaaaasdasdad</b>';
+//        dd()
+
 //        $a['a']='aaa';
 //        $v=explode('.','a.a');
 ////        dd($v);

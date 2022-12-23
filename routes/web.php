@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CourseTagController;
+use App\Http\Controllers\SupportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,13 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect(\route('dashboard'));
-});
+Route::get('/a', function () {
+    $a=[];
+    return dd(\Wink\WinkPost::query()->first());
+})->name('dashboard');
 
-Route::get('/aaa', function () {
 
-});
+
 
 Route::prefix('admin/')->name('admin.')->middleware([
     'auth:sanctum',
@@ -30,6 +31,12 @@ Route::prefix('admin/')->name('admin.')->middleware([
     Route::get('/dashboard', function () {
         return view('pages.dashboard');
     })->name('dashboard');
+    Route::get('/form-example', function () {
+        return view('pages.admin.example.form-generator');
+    })->name('form-example');
+    Route::get('/table-example', function () {
+        return view('pages.admin.example.table-generator');
+    })->name('table-example');
 
     Route::resource('course-tag', CourseTagController::class)->only('index','create','edit');
 });
