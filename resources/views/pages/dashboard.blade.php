@@ -96,7 +96,6 @@ $a=new \App\Repository\User();
                 </div>
                 <!-- Card body 1 -->
                 <div class="relative p-4">
-                    @livewire('check')
                     @php
                         $chart1=[
 							'type'=>'line',

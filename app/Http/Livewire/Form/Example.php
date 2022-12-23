@@ -14,6 +14,13 @@ class Example extends Component
     public function mount(){
         $this->data=form_model(Repository::class,$this->dataId);
     }
+    public function create(){
+        Repository::create($this->data);
+    }
+    public function update(){
+        Repository::find($this->dataId)->update($this->data);
+    }
+
     public function render()
     {
         return view('livewire.form.example');
