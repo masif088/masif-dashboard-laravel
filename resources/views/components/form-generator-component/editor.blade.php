@@ -4,7 +4,7 @@
            class="block text-gray-500 text-sm font-bold mb-2 dark:text-light" for="username">
         {{ $repository['title'] }}
     </label>
-  <textarea name="data{{ $repository['model'] }}" id="data{{ $repository['model'] }}">
+  <textarea name="{{ $repository['model'] }}" id="data{{ $repository['model'] }}" >
   </textarea>
     <script>
         document.addEventListener('livewire:load', function () {

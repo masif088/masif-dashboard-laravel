@@ -7,6 +7,7 @@
     <select id="{{'data'.$repository['model']}}"
             class="bg-gray-200 appearance-none border-1 border border-gray-100 rounded w-full text-gray-700 leading-tight focus:outline-none dark:border-primary-light focus:bg-gray-100 dark:bg-dark dark:text-light focus:dark:border-white select2"
             multiple=""
+            name="{{ $repository['model'] }}"
             style="padding:0  100px" wire:model="{{'data.'.$repository['model']}}">
         @for($i=0;$i<count($repository['options']) ;$i++)
             <option value="{{$repository['options'][$i]['value']}}"

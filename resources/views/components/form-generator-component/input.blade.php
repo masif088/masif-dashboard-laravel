@@ -12,6 +12,7 @@
     @isset($repository['step']) step="{{ $repository['step'] }}" @else step="any" @endisset
     @isset($repository['accept']) accept="{{ $repository['accept'] }}" @endisset
     wire:model="{{'data.'.$repository['model']}}"
+        name="{{ $repository['model'] }}"
     class="bg-gray-200 appearance-none border-1 border border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none dark:border-primary-light focus:bg-gray-100 dark:bg-dark dark:text-light focus:dark:border-white"
     >
     @if($repository['type']=="file")

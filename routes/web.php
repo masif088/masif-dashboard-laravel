@@ -15,12 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/a', function () {
-    $a=[];
-    return dd(\Wink\WinkPost::query()->first());
-})->name('dashboard');
-
-
+Route::get('/',function (){
+    return redirect(route('admin.dashboard'));
+});
+Route::get('/dashboard',function (){
+    return redirect(route('admin.dashboard'));
+});
 
 
 Route::prefix('admin/')->name('admin.')->middleware([
@@ -31,9 +31,11 @@ Route::prefix('admin/')->name('admin.')->middleware([
     Route::get('/dashboard', function () {
         return view('pages.dashboard');
     })->name('dashboard');
+
     Route::get('/form-example', function () {
         return view('pages.admin.example.form-generator');
     })->name('form-example');
+
     Route::get('/table-example', function () {
         return view('pages.admin.example.table-generator');
     })->name('table-example');

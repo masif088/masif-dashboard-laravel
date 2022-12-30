@@ -1,28 +1,79 @@
-# Laravel 9 + Masif Dashboard + Jetstream + Livewire + Custom Component  
+# Laravel 9 + Masif Dashboard + Jetstream + Livewire + Custom Component
+
+***
+
 ## I'm lazy that's why I made this convenience
+
 [//]: # ([![contributions welcome]&#40;https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat&#41;]&#40;https://github.com/nyancodeid/laravel-8-stisla-jetstream/issues&#41;)
 
 Masif dashboard have base design from [kwd-dashboard](https://github.com/Kamona-WD/kwd-dashboard).
 <br>
 Component data-table inspire from [laravel-8-stisla-jetstream
-](https://github.com/nyancodeid/laravel-8-stisla-jetstream) 
+](https://github.com/nyancodeid/laravel-8-stisla-jetstream)
 <br>
 
 
+***
 
 ## Inside
 
--   Laravel ^9.45.1 - [laravel.com/docs/9.x](https://laravel.com/docs/9.x)
--   Laravel Jetstream ^2.12 - [jetstream.laravel.com](https://jetstream.laravel.com/)
--   Livewire ^2.5 - [laravel-livewire.com](https://laravel-livewire.com)
--   Masif Dashboard ^2.3.0 - [masif088](https://github.com/masif088/kwd-dashboard-asif)
--   Custom Component [ Chart | Form Generator | Data Table ]
+- Laravel ^9.45.1 - [laravel.com/docs/9.x](https://laravel.com/docs/9.x)
+- Laravel Jetstream ^2.12 - [jetstream.laravel.com](https://jetstream.laravel.com/)
+- Livewire ^2.5 - [laravel-livewire.com](https://laravel-livewire.com)
+- Masif Dashboard ^2.3.0 - [masif088](https://github.com/masif088/kwd-dashboard-asif)
+- Custom Component [ Chart | Form Generator | Data Table ]
+
+***
+
+## Look
+
+![](https://github.com/masif088/masif-dashboard-laravel/blob/main/public/masif-dashboard/asset/img1.png?raw=true)   |   ![](https://github.com/masif088/masif-dashboard-laravel/blob/main/public/masif-dashboard/asset/img2.png?raw=true)
+:---:|:---:
+![](https://github.com/masif088/masif-dashboard-laravel/blob/main/public/masif-dashboard/asset/img3.png?raw=true)   |   ![](https://github.com/masif088/masif-dashboard-laravel/blob/main/public/masif-dashboard/asset/img4.png?raw=true)
+
+***
+
+## Install
+
+After clone or download this repository, next step is install all dependency required by laravel and vite.
+
+```shell
+# install composer-dependency
+$ composer install
+# install npm package
+$ npm install
+```
+
+Before we start web server make sure we already generate app key, configure `.env` file and do migration.
+
+```shell
+# create copy of .env
+$ cp .env.example .env
+# create laravel key
+$ php artisan key:generate
+# laravel migrate
+$ php artisan migrate
+# laravel link up storage files
+$ php artisan storage:link
+```
+
+We need 2 terminal tab for running laravel and vite.
+
+```shell
+# run laravel 
+$ php artisan serve
+# run vite on another terminal
+$ npm run dev
+```
+
+***
 
 ## Use
+
 Create mirror file from Models then extend them and implement Repository. <br>
 This class for preparation on view
 <br>
-for more explain read below 
+for more explain read below
 
 ```php
 <?php
@@ -259,17 +310,26 @@ class Example extends \App\Models\Example implements Repository {
     }
 }
 ```
-Call **DATA-TABLE** <br> Example is name of Model and Repository 
+
+***
+
+Call **DATA-TABLE** <br> Example is name of Model and Repository
+
 ```html
+
 <lievwire:table.main name="Example"/>
 or
 @livewire('table.main',['name' => 'Example'])
 ```
 
+***
+
 Call **FORM**<br>  Example is name of Model and Repository <br>
 This form need live on livewire beacuse i love livewire :)
+
 ```html
-<form wire:submit.prevent="create" >
+
+<form wire:submit.prevent="create">
     <x-form-generator repositories="Example"/>
     <br>
     <x-form-button/>
@@ -307,44 +367,47 @@ class Example extends Component
 }
 ```
 
-## Install
+or you can call with action another route.    
+Form have name from model on repository
 
-After clone or download this repository, next step is install all dependency required by laravel and vite.
+```html
 
-```shell
-# install composer-dependency
-$ composer install
-# install npm package
-$ npm install
+<form action="{{ route('route-name') }}">
+    <x-form-generator repositories="Example"/>
+    <br>
+    <x-form-button/>
+</form>
 ```
 
-Before we start web server make sure we already generate app key, configure `.env` file and do migration.
+***
 
-```shell
-# create copy of .env
-$ cp .env.example .env
-# create laravel key
-$ php artisan key:generate
-# laravel migrate
-$ php artisan migrate
-# laravel link up storage files
-$ php artisan storage:link
+Call **Chart**  
+Chart you just need array with specific format :)
+
+*For time series chart [line,area,bar]*
+
+```php
+$chart=[
+    'type'=>'line',
+    'categories'=> ["January","February","March","April","May","June","July",
+            "August","September","October","November","December"];,
+    'data'=> [
+        [ 'label'=>'income' ,'value'=>[11,22,35,14,15,11,22,35,14,15,20,22]],
+        [ 'label'=>'outcome' ,'value'=>[15,14,32,21,11,14,32,21,14,32,14,32]],
+    ]
+];
 ```
 
-We need 2 terminal tab for running laravel and vite.
+*For non time series chart [pie,donut]*
 
-```shell
-# run laravel 
-$ php artisan serve
-# run vite on another terminal
-$ npm run dev
+```php
+$chart=[
+    'type'=>'pie',
+    'categories'=>['Food','Drink'],
+    'data'=> [120,220]
+];                 
 ```
-
-## Look
-<p align="center">
-    <img src="https://github.com/masif088/masif-dashboard-laravel/blob/main/public/masif-dashboard/asset/img1.png?raw=true" width="80%" height="auto" />
-    <img src="https://github.com/masif088/masif-dashboard-laravel/blob/main/public/masif-dashboard/asset/img2.png?raw=true" width="80%" height="auto" />
-    <img src="https://github.com/masif088/masif-dashboard-laravel/blob/main/public/masif-dashboard/asset/img3.png?raw=true" width="80%" height="auto" />
-    <img src="https://github.com/masif088/masif-dashboard-laravel/blob/main/public/masif-dashboard/asset/img4.png?raw=true" width="80%" height="auto" />
-    
-</p>
+*Then call them :)*
+```html
+<x-chart :chart="$chart"/>
+```
