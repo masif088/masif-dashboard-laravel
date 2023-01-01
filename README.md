@@ -390,7 +390,7 @@ Chart you just need array with specific format :)
 $chart=[
     'type'=>'line',
     'categories'=> ["January","February","March","April","May","June","July",
-            "August","September","October","November","December"];,
+            "August","September","October","November","December"],
     'data'=> [
         [ 'label'=>'income' ,'value'=>[11,22,35,14,15,11,22,35,14,15,20,22]],
         [ 'label'=>'outcome' ,'value'=>[15,14,32,21,11,14,32,21,14,32,14,32]],

@@ -18,6 +18,7 @@
     },
     "dependencies": {
         "daisyui": "^2.45.0",
-        "tailwind-editor": "^0.1.63"
+        "tailwind-editor": "^0.1.63",
+        "taos": "^1.0.2"
     }
 }

@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('vendor/datepicker/date-picker.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('vendor/datepicker/date-picker.custom.css?_=2')}}">
     <script src="https://cdn.tiny.cloud/1/cdy7uy0kp3sps4cksg5twt8j1dbz75v48yog5k9ype8x9oo3/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>document.documentElement.classList.add('js')</script>
 
 </head>
 <body>
@@ -76,6 +77,29 @@
 
 <script>
     const setup = () => {
+
+        const callback = function (entries) {
+            entries.forEach((entry) => {
+                console.log(entry);
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("animate-fadeIn");
+                } else {
+                    entry.target.classList.remove("animate-fadeIn");
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(callback);
+
+        const targets = document.querySelectorAll(".js-show-on-scroll");
+        targets.forEach(function (target) {
+            target.classList.add("opacity-0");
+            observer.observe(target);
+        });
+
+        if (window.localStorage.getItem('dark')==="true") {
+            $( "#sunMoon" ).prop('checked', true);
+        }
         const getTheme = () => {
             if (window.localStorage.getItem('dark')) {
                 return JSON.parse(window.localStorage.getItem('dark'))
@@ -85,6 +109,7 @@
 
         const setTheme = (value) => {
             window.localStorage.setItem('dark', value)
+
         }
 
         const getColor = () => {
@@ -154,5 +179,6 @@
         }
     }
 </script>
+<script src="https://unpkg.com/taos@1.0.2/dist/taos.js"></script>
 </body>
 </html>

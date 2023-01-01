@@ -8,11 +8,17 @@
                 return getComputedStyle(document.documentElement).getPropertyValue(color)
             }
 
+            const getTheme = () => {
+                if (window.localStorage.getItem('dark') === 'true') {
+                    return 'dark'
+                } else {
+                    return 'light'
+                }
+            }
             const getColorChart = () => {
                 return window.localStorage.getItem('color') ?? 'cyan'
             }
             const getForeColors = () => {
-                console.log(window.localStorage.getItem('dark'));
                 if (window.localStorage.getItem('dark') === 'true') {
                     return getComputedStyle(document.documentElement).getPropertyValue('--light');
                 } else {
@@ -36,15 +42,29 @@
                 chart: {
                     foreColor: getForeColors(),
                     type: '{{ $chart['type'] }}',
-                    height: 300
+                    height: 300,
+
+                },
+                tooltip: {
+                    enabled: true,
+                    enabledOnSeries: undefined,
+                    shared: true,
+                    followCursor: true,
+                    inverseOrder: true,
+                    theme: getTheme(),
+                    y: {
+                        formatter: function (val) {
+                            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                        }
+                    },
                 },
                 series: [
-                    @foreach($chart['data'] as $value)
+                        @foreach($chart['data'] as $value)
                     {
                         name: '{{ $value['label'] }}',
                         data: [
                             @foreach($value['value'] as $v)
-                            {{ $v }},
+                                {{ $v }},
                             @endforeach
                         ]
                     },

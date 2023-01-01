@@ -18,10 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',function (){
     return redirect(route('admin.dashboard'));
 });
-Route::get('/dashboard',function (){
-    return redirect(route('admin.dashboard'));
-});
-
+//Route::get('/dashboard',function (){
+//    return redirect(route('admin.dashboard'));
+//});
+Route::get('/dashboard', function () {
+    return view('pages.dashboard');
+})->name('dashboard');
 
 Route::prefix('admin/')->name('admin.')->middleware([
     'auth:sanctum',

@@ -3,17 +3,32 @@ const colors = require('tailwindcss/colors')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    safelist: [
+        '!duration-0',
+        '!delay-0',
+        'html.js :where([class*="taos:"]:not(.taos-init))'
+    ],
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/views/**/*.svelte',
-
+        // transform: (content) => content.replace(/taos:/g, ''),
     ],
+
     darkMode: 'class', // or 'media' or false
     theme: {
         extend: {
+            animation: {
+                fadeIn: "fadeIn 2s ease-in forwards"
+            },
+            keyframes: {
+                fadeIn: {
+                    "0%": { opacity: 0 },
+                    "100%": { opacity: 1 }
+                }
+            },
             borderWidth: {
                 DEFAULT: '1px',
                 '0': '0',
@@ -124,5 +139,10 @@ module.exports = {
         },
     },
 
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'),require("daisyui")],
+    plugins: [
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/typography'),
+        require("daisyui"),
+        require('taos/plugin')
+    ],
 };

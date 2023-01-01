@@ -69,11 +69,11 @@
                                     <td class="py-2 px-6">
                                         @foreach($data['data'] as $action)
                                                 <a @isset($action['link']) href='{{ $action['link'] }}' @else href='#' wire:click.prevent='{{$action['live']}}' @endisset
-                                                   class="bg-primary hover:bg-primary-dark text-white font-bold px-3 rounded m-1">
+                                                   class="bg-primary hover:bg-primary-dark text-white font-bold btn-sm btn m-1">
                                                     @isset($action['icon'])
                                                         <i class="{{ $action['icon'] }}"></i>
                                                     @endisset
-                                                    {{ $action['title'] }}
+                                                     &nbsp;{{ $action['title'] }}
                                                 </a>
                                         @endforeach
                                     </td>

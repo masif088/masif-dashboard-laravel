@@ -21,7 +21,8 @@
                     @foreach(explode(';',$subtitles) as $st)
                         @php($link=explode(',',$st))
                         <li>
-                            <a class="text-primary-dark font-bold dark:text-primary-light opacity-50" href="{{ $link[1] }}">{{ $link[0] }}</a>
+                            <a class="text-primary-dark font-bold dark:text-primary-light opacity-50"
+                               href="{{ $link[1] }}">{{ $link[0] }}</a>
                         </li>
                         <li><span class="text-gray-500 mx-2">/</span></li>
                     @endforeach
@@ -43,14 +44,20 @@
         <!-- Desktop Right buttons -->
         <nav aria-label="Secondary" class="hidden space-x-2 md:flex md:items-center">
             <!-- Toggle dark theme button -->
-            <button @click="toggleTheme"
-                    aria-hidden="true"
-                    class="p-2 transition-colors duration-200 text-primary hover:text-primary-lighter dark:hover:text-light focus:outline-none"
-                    x-cloak>
-                <div :class="{ 'translate-x-0 -translate-y-px': !isDark }">
-                    <i class="fa-solid fa-moon text-xl" x-show="isDark"></i>
-                    <i class="fa-solid fa-sun text-xl" x-show="!isDark"></i>
-                </div>
+            <button
+                aria-hidden="true"
+                class="p-2 transition-colors duration-200 text-primary hover:text-primary-lighter dark:hover:text-light focus:outline-none"
+                x-cloak>
+                {{--                <div :class="{ 'translate-x-0 -translate-y-px': !isDark }">--}}
+                {{--                    <i class="fa-solid fa-moon text-xl" x-show="isDark"></i>--}}
+                {{--                    <i class="fa-solid fa-sun text-xl" x-show="!isDark"></i>--}}
+                {{--                </div>--}}
+                <label class="swap swap-rotate" @click="toggleTheme">
+                    <!-- this hidden checkbox controls the state -->
+                    <input type="checkbox" style="display: none" @click="toggleTheme" id="sunMoon"/>
+                    <i class="swap-on fa-solid fa-moon text-xl"></i>
+                    <i class="swap-off fa-solid fa-sun text-xl"></i>
+                </label>
             </button>
 
 
@@ -130,7 +137,9 @@
                         class="absolute top-0 left-0 inline-flex items-center justify-center w-6 h-6 transition-all duration-200 transform scale-110 rounded-full shadow-sm">
                         <i class="fa-solid fa-moon text-m w-4 h-4" x-show="isDark"></i>
                         <i class="fa-solid fa-sun text-m w-4 h-4" x-show="!isDark"></i>
+
                     </div>
+
                 </button>
 
                 <!-- Settings button -->
