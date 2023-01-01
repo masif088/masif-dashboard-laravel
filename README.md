@@ -52,7 +52,7 @@ $ cp .env.example .env
 # create laravel key
 $ php artisan key:generate
 # laravel migrate
-$ php artisan migrate
+$ php artisan migrate --seed
 # laravel link up storage files
 $ php artisan storage:link
 ```
@@ -65,6 +65,10 @@ $ php artisan serve
 # run vite on another terminal
 $ npm run dev
 ```
+
+Testing user  
+email : admin@admin  
+password : admin
 
 ***
 
