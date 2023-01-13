@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Admin\CourseTagController;
-use App\Http\Controllers\SupportController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,15 +13,59 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/asda', function () {
+    $data = [
+        [3],
+        [11, 2, 4],
+        [4, 5, 6],
+        [10, 5, -12],
+    ];
 
-Route::get('/',function (){
+    echo "Output1 <br>";
+    for ($i = 0; $i <= $data[0][0]; $i++) {
+        for ($j = 0; $j < $i; $j++) {
+            if ($j + 1 == $i) {
+                if ($data[$i][$j]<10){
+                    echo ".".$data[$i][$j];
+                }else{
+                    echo $data[$i][$j];
+                }
+            } else {
+                echo ".. ";
+            }
+        }
+        if ($i!=0){
+            echo "<br>";
+        }
+    }
+    echo "<br>Output2 <br>";
+
+    for ($i = 1; $i <= $data[0][0]; $i++) {
+        for ($j = 0; $j <= $data[0][0]-$i; $j++) {
+            if ($j == $data[0][0]-$i) {
+                if ($data[$i][$j]<10){
+                        echo ".".$data[$i][$j];
+                }else{
+                    echo $data[$i][$j];
+                }
+            } else {
+                echo ".. ";
+            }
+        }
+//        if ($i!=0){
+            echo "<br>";
+//        }
+    }
+
+});
+Route::get('/', function () {
     return redirect(route('admin.dashboard'));
 });
 
 Route::prefix('admin/')->name('admin.')->middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
-    'verified'
+    'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('pages.dashboard');
@@ -36,7 +79,7 @@ Route::prefix('admin/')->name('admin.')->middleware([
         return view('pages.admin.example.table-generator');
     })->name('table-example');
 
-    Route::resource('course-tag', CourseTagController::class)->only('index','create','edit');
+    Route::resource('course-tag', CourseTagController::class)->only('index', 'create', 'edit');
 });
 
 

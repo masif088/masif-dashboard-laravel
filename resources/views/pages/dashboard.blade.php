@@ -55,7 +55,7 @@ $a=new \App\Repository\User();
 
         </div>
 
-        <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-12">
+        <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-12 ">
             <div class="col-span-8 bg-white rounded-md dark:bg-darker shadow-soft-xl p-5">
                 <div class="text-5xl font-bold text-primary dark:text-primary-light float-left">
                     Selamat Datang
@@ -83,6 +83,22 @@ $a=new \App\Repository\User();
 
 
         </div>
+{{--        <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-12 lg:space-y-0 lg:grid-cols-12">--}}
+{{--            <div class="col-span-12 bg-white rounded-md dark:bg-darker shadow-soft-xl p-5">--}}
+{{--                <div id="calendaraaa"></div>--}}
+{{--                <script>--}}
+
+{{--                    document.addEventListener('DOMContentLoaded', function() {--}}
+{{--                        var calendarEl = document.getElementById('calendaraaa');--}}
+{{--                        var calendar = new FullCalendar.Calendar(calendarEl, {--}}
+{{--                            initialView: 'dayGridMonth'--}}
+{{--                        });--}}
+{{--                        calendar.render();--}}
+{{--                    });--}}
+
+{{--                </script>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
         <div class="grid grid-cols-1 p-4 space-y-8 lg:gap-8 lg:space-y-0 lg:grid-cols-12">
 
@@ -105,10 +121,12 @@ $a=new \App\Repository\User();
 							'data'=> [
 								[ 'label'=>'income' ,'value'=>[11,22,35,14,15,11,22,35,14,15,20,22]],
 								[ 'label'=>'outcome' ,'value'=>[15,14,32,21,11,14,32,21,14,32,14,32]],
-							]
+    							]
 						];
                     @endphp
                     <x-chart :chart="$chart1"/>
+
+
 
                 </div>
             </div>

@@ -27,9 +27,9 @@ Component data-table inspire from [laravel-8-stisla-jetstream
 
 ## Look
 
-![](https://github.com/masif088/masif-dashboard-laravel/blob/main/public/masif-dashboard/asset/img1.png?raw=true)   |   ![](https://github.com/masif088/masif-dashboard-laravel/blob/main/public/masif-dashboard/asset/img2.png?raw=true)
-:---:|:---:
-![](https://github.com/masif088/masif-dashboard-laravel/blob/main/public/masif-dashboard/asset/img3.png?raw=true)   |   ![](https://github.com/masif088/masif-dashboard-laravel/blob/main/public/masif-dashboard/asset/img4.png?raw=true)
+![](https://github.com/masif088/masif-dashboard-laravel/blob/main/public/masif-dashboard/asset/img1.png?raw=true)   | ![](https://github.com/masif088/masif-dashboard-laravel/blob/main/public/masif-dashboard/asset/img2.png?raw=true) |
+:---:|:-----------------------------------------------------------------------------------------------------------------:
+![](https://github.com/masif088/masif-dashboard-laravel/blob/main/public/masif-dashboard/asset/img3.png?raw=true)   | ![](https://github.com/masif088/masif-dashboard-laravel/blob/main/public/masif-dashboard/asset/img4.png?raw=true) |
 
 ***
 
@@ -414,4 +414,20 @@ $chart=[
 *Then call them :)*
 ```html
 <x-chart :chart="$chart"/>
+```
+
+Call **Simple Calendar** 
+create from array 
+ ```php
+ $events=[
+	['title'=>'Yesterday Event ','date'=>Carbon::now()->subDay()],
+	['title'=>'This Day Event 1','date'=>Carbon::now()],
+	['title'=>'This Day Event 2','date'=>Carbon::now()->addHour()],
+	['title'=>'Tomorrow Event 1','date'=>Carbon::now()->addDay()],
+	['title'=>'Tomorrow Event 2','date'=>Carbon::now()->addDay()],
+]
+ ```
+Then call them :)
+```html
+<x-calendar :events="$events"/>
 ```

@@ -27,7 +27,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('vendor/datepicker/date-picker.custom.css?_=2')}}">
     <script src="https://cdn.tiny.cloud/1/cdy7uy0kp3sps4cksg5twt8j1dbz75v48yog5k9ype8x9oo3/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>document.documentElement.classList.add('js')</script>
-
+    <script src='{{asset('vendor/calendar/index.global.js')}}'></script>
 </head>
 <body>
 <div :class="{ 'dark': isDark}" x-data="setup()" x-init="$refs.loading.classList.add('hidden'); setColors(color);">
@@ -73,6 +73,7 @@
 <script src="{{ asset('vendor/summernote/summernote.js') }}"></script>
 
 <script src='{{ asset('vendor/calendar/index.global.js') }}'></script>
+
 @livewireScripts
 
 <script>
